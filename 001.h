@@ -22,6 +22,7 @@ vector<int> twoSum(vector<int>& nums, int target) {
     int another = target - nums[i];
     size_t idx = valToIdx[another];
     if (idx > 0 && idx != i+1) {
+      // [[warn]] 不能是自己和自己的相加
       ret.push_back(i);
       ret.push_back(idx-1);
       return ret;
