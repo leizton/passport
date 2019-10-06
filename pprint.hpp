@@ -703,21 +703,21 @@ namespace pprint {
 	  print_internal(value.front(), 0, "", level + 1);
 	}
 	else if (value.size() > 0) {
-	  print_internal_without_quotes("[", 0, "\n");
+	  print_internal_without_quotes("[", 0, "");
 	  print_internal(value.front(), indent + indent_, "", level + 1);
 	  if (value.size() > 1 && is_container<T>::value == false)
-	    print_internal_without_quotes(", ", 0, "\n");
+	    print_internal_without_quotes(", ", 0, "");
 	  else if (is_container<T>::value)
-	    print_internal_without_quotes(", ", 0, "\n");
+	    print_internal_without_quotes(", ", 0, "");
 	  for (size_t i = 1; i < value.size() - 1; i++) {
 	    print_internal(value[i], indent + indent_, "", level + 1);
 	    if (is_container<T>::value == false)
-	      print_internal_without_quotes(", ", 0, "\n");
+	      print_internal_without_quotes(", ", 0, "");
 	    else
-	      print_internal_without_quotes(", ", 0, "\n");	    
+	      print_internal_without_quotes(", ", 0, "");	    
 	  }
 	  if (value.size() > 1) {
-	    print_internal(value.back(), indent + indent_, "\n", level + 1);
+	    print_internal(value.back(), indent + indent_, "", level + 1);
 	  }
 	}
 	if (value.size() == 0)
