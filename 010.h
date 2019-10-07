@@ -107,26 +107,26 @@ bool isMatch(string src, string pattern) {
 void testSimplifyPattern() {
   string p = "aba*ca*a*.*c*d";
   simplifyPattern(p);
-  printer.print(p);
+  print(p);
   p = "aba*ca*d*";
   simplifyPattern(p);
-  printer.print(p);
+  print(p);
 }
 
 void test() {
-  printer.print(isMatch("abcadaaac", "ab.ada*ac"));  // true
-  printer.print(isMatch("abcadaaac", "ab.ada*a"));  // false
-  printer.print(isMatch("abcadaaac", ".*c"));  // true
-  printer.print(isMatch("abcadaaaa", "ab.ada*ac"));  // false
-  printer.print(isMatch("abcadaaaa", "ab.ada*aa"));  // true
-  printer.print(isMatch("a", "a*"));  // true
-  printer.print(isMatch("", "a*"));  // true
+  print(isMatch("abcadaaac", "ab.ada*ac"));  // true
+  print(isMatch("abcadaaac", "ab.ada*a"));  // false
+  print(isMatch("abcadaaac", ".*c"));  // true
+  print(isMatch("abcadaaaa", "ab.ada*ac"));  // false
+  print(isMatch("abcadaaaa", "ab.ada*aa"));  // true
+  print(isMatch("a", "a*"));  // true
+  print(isMatch("", "a*"));  // true
 
-  printer.print(isMatch("bccbbabcaccacbcacaa", ".*b.*c*.*.*.c*a*.c"));  // false
-  printer.print(isMatch("bccbbabcaccacbcacaa", ".*b.*c*.*.c*a*."));  // true
+  print(isMatch("bccbbabcaccacbcacaa", ".*b.*c*.*.*.c*a*.c"));  // false
+  print(isMatch("bccbbabcaccacbcacaa", ".*b.*c*.*.c*a*."));  // true
 
-  printer.print(isMatch("ccbbabbbabababa", ".*.ba*c*c*aab.a*b*"));  // false
+  print(isMatch("ccbbabbbabababa", ".*.ba*c*c*aab.a*b*"));  // false
 
-  printer.print(isMatch("mississippi", "mis*is*p*."));  // false
-  printer.print(isMatch("mississippi", "mis*is*p*..*"));  // true
+  print(isMatch("mississippi", "mis*is*p*."));  // false
+  print(isMatch("mississippi", "mis*is*p*..*"));  // true
 }

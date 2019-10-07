@@ -20,3 +20,5 @@
 using namespace std;
 
 pprint::PrettyPrinter printer(std::cout);
+
+#define print(...) printer.print(__VA_ARGS__)

@@ -109,7 +109,7 @@ void printList(ListNode* l) {
   for (; l != nullptr; l = l->next) {
     sout << l->val;
   }
-  printer.print(sout.str());
+  print(sout.str());
 }
 
 void test(vector<int>&& x1, vector<int>&& x2) {

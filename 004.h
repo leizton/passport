@@ -61,7 +61,7 @@ double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
 void test(vector<int>&& nums1, vector<int>&& nums2) {
   vector<int> v1(nums1), v2(nums2);
   double ret = findMedianSortedArrays(v1, v2);
-  printer.print(ret);
+  print(ret);
 }
 
 void test() {

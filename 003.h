@@ -42,11 +42,11 @@ void test() {
   int ret;
 
   ret = lengthOfLongestSubstring("bbbbb");  // 1
-  printer.print(ret);
+  print(ret);
 
   ret = lengthOfLongestSubstring("bbabb");  // 2
-  printer.print(ret);
+  print(ret);
 
   ret = lengthOfLongestSubstring("pwwkew");  // 3
-  printer.print(ret);
+  print(ret);
 }
