@@ -36,6 +36,6 @@ int removeElement(vector<int>& nums, int val) {
 
 void test() {
   vector<int> v1 = {3,1,2,3};
-  Eq(removeElement(v1, 3), 2);
+  ASSERT_EQ(2, removeElement(v1, 3));
   print(v1);
 }

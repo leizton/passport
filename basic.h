@@ -34,43 +34,34 @@
 
 using namespace std;
 
-pprint::PrettyPrinter printer(std::cout);
+pprint::PrettyPrinter printer(cout);
 
 #define pprint(...) printer.print(__VA_ARGS__)
 
-#define COUT(expr) std::cout << std::boolalpha << (expr) << std::endl;
+#define COUT(expr) cout << boolalpha << (expr) << endl;
 
-void fmtprint(const char* level, const char* file, const int line,
-              const char* func, const char* fmt, ...) {
-  const int bufsize = 1024;
-  char fmtstrtmp[bufsize];
-  {
-    va_list ap;
-    va_start(ap, fmt);
-    vsnprintf(fmtstrtmp, bufsize, fmt, ap);
-    va_end(ap);
-  }
-
-  std::ostringstream ss;
-  ss << level << " " << line << "]  ";
-  ss << fmtstrtmp;
-  std::cout << ss.str() << std::endl;
+#define ASSERT_EQ(expect, actual) {\
+  auto actual_v = actual;\
+  assertEquals(__LINE__, expect, actual_v);\
 }
 
-#define PRINT_INFO(fmt, args...)\
-  // fmtprint("√", __FILE__, __LINE__, __FUNCTION__, fmt, ##args);
+void assertEquals(int lineno, int expect, int actual) {
+  if (expect == actual) return;
+  ostringstream ss;
+  ss << lineno << "] assertEquals fail.";
+  ss << " expect=" << expect << ", actual=" << actual << "\n";
+  cout << ss.str();
+}
 
-#define PRINT_ERROR(fmt, args...)\
-  fmtprint("×", __FILE__, __LINE__, __FUNCTION__, fmt, ##args);
 
-#define Eq(actual, expect)\
-  if ((actual) == (expect)) { PRINT_INFO("Eq: %s == %s", #actual, #expect); }\
-  else { PRINT_ERROR("Eq: %s != %s", #actual, #expect); }
-
+void printss(ostringstream& ss) {
+  ss << "\n";
+  cout << ss.str();
+}
 
 template<class T>
-void print(std::vector<T> v) {
-  std::ostringstream out;
+void print(vector<T> v) {
+  ostringstream out;
   out << "[";
   bool first = true;
   for (T& e : v) {
@@ -78,6 +69,18 @@ void print(std::vector<T> v) {
     first = false;
     out << e;
   }
-  out << "]\n";
-  std::cout << out.str();
+  out << "]";
+  printss(out);
+}
+
+void print(int v) {
+  ostringstream out;
+  out << v;
+  printss(out);
+}
+
+void print(bool v) {
+  ostringstream out;
+  out << boolalpha << v;
+  printss(out);
 }
