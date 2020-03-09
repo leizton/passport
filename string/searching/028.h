@@ -38,7 +38,7 @@ Result sunday(string str, string pattern) {
     for (k = 0; k<n1 && a[k]==b1[k]; k++);
     cmp_cnt += k+1;
     if (k == n1) return {p, cmp_cnt};
-    if (p == limit) return {-1, cmp_cnt};
+    if (p == limit) return {-1, cmp_cnt};  // 主串后面没有字符了
     p += n1 - last_idx[ b1[n1] + 128 ];
   }
   return {-1, cmp_cnt};
