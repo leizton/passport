@@ -84,3 +84,42 @@ void print(bool v) {
   out << boolalpha << v;
   printss(out);
 }
+
+template<class T>
+ostream& operator <<(ostream& out, const vector<T>& v) {
+  out << "[";
+  bool first = true;
+  for (T& e : v) {
+    if (!first) out << ",";
+    first = false;
+    out << e;
+  }
+  out << "]";
+  return out;
+}
+
+template<class K, class V>
+ostream& operator <<(ostream& out, const map<K,V>& m) {
+  out << "[";
+  bool first = true;
+  for (auto& p : m) {
+    if (!first) out << ",";
+    first = false;
+    out << p.first << "=" << p.second;
+  }
+  out << "]";
+  return out;
+}
+
+template<class K, class V>
+ostream& operator <<(ostream& out, const unordered_map<K,V>& m) {
+  out << "[";
+  bool first = true;
+  for (auto& p : m) {
+    if (!first) out << ",";
+    first = false;
+    out << p.first << "=" << p.second;
+  }
+  out << "]";
+  return out;
+}
