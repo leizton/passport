@@ -45,7 +45,8 @@ pprint::PrettyPrinter printer(cout);
   assertEquals(__LINE__, expect, actual_v);\
 }
 
-void assertEquals(int lineno, int expect, int actual) {
+template<class T>
+void assertEquals(int lineno, T expect, T actual) {
   if (expect == actual) return;
   ostringstream ss;
   ss << lineno << "] assertEquals fail.";
