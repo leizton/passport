@@ -54,11 +54,11 @@ int strStr(string str, string pattern) {
 }
 
 void test() {
-  ASSERT_EQ(0, strStr("", ""));
-  ASSERT_EQ(0, strStr("abc", ""));
-  ASSERT_EQ(-1, strStr("", "a"));
-  ASSERT_EQ(2, strStr("abc123", "c1"));
-  ASSERT_EQ(-1, strStr("abc123", "a1"));
-  ASSERT_EQ(1, strStr("aabaabbbaabbbbabaaab", "abaa"));
-  ASSERT_EQ(10, strStr("bbbbbbbbbbbbbbbbbbb1", "bbbbbbbbb1"));
+  assert_eq(0, strStr("", ""));
+  assert_eq(0, strStr("abc", ""));
+  assert_eq(-1, strStr("", "a"));
+  assert_eq(2, strStr("abc123", "c1"));
+  assert_eq(-1, strStr("abc123", "a1"));
+  assert_eq(1, strStr("aabaabbbaabbbbabaaab", "abaa"));
+  assert_eq(10, strStr("bbbbbbbbbbbbbbbbbbb1", "bbbbbbbbb1"));
 }

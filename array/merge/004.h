@@ -39,12 +39,12 @@ double findMedianSortedArrays(vector<int> a, vector<int> b) {
 }
 
 void test() {
-  ASSERT_EQ(2.0, findMedianSortedArrays({1, 3}, {2}));
-  ASSERT_EQ(2.0, findMedianSortedArrays({2}, {1, 3}));
-  ASSERT_EQ(2.0, findMedianSortedArrays({}, {1, 2, 3}));
-  ASSERT_EQ(2.5, findMedianSortedArrays({1, 3}, {2, 4}));
-  ASSERT_EQ(2.5, findMedianSortedArrays({1, 2, 3, 4}, {}));
-  ASSERT_EQ(1.0, findMedianSortedArrays({1}, {1}));
-  ASSERT_EQ(1.5, findMedianSortedArrays({1}, {2}));
-  ASSERT_EQ(2.5, findMedianSortedArrays({1}, {2, 3, 4}));
+  assert_eq(2.0, findMedianSortedArrays({1, 3}, {2}));
+  assert_eq(2.0, findMedianSortedArrays({2}, {1, 3}));
+  assert_eq(2.0, findMedianSortedArrays({}, {1, 2, 3}));
+  assert_eq(2.5, findMedianSortedArrays({1, 3}, {2, 4}));
+  assert_eq(2.5, findMedianSortedArrays({1, 2, 3, 4}, {}));
+  assert_eq(1.0, findMedianSortedArrays({1}, {1}));
+  assert_eq(1.5, findMedianSortedArrays({1}, {2}));
+  assert_eq(2.5, findMedianSortedArrays({1}, {2, 3, 4}));
 }

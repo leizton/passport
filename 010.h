@@ -107,26 +107,23 @@ bool isMatch(string src, string pattern) {
 void testSimplifyPattern() {
   string p = "aba*ca*a*.*c*d";
   simplifyPattern(p);
-  print(p);
+  COUT(p);
   p = "aba*ca*d*";
   simplifyPattern(p);
-  print(p);
+  COUT(p);
 }
 
 void test() {
-  print(isMatch("abcadaaac", "ab.ada*ac"));  // true
-  print(isMatch("abcadaaac", "ab.ada*a"));  // false
-  print(isMatch("abcadaaac", ".*c"));  // true
-  print(isMatch("abcadaaaa", "ab.ada*ac"));  // false
-  print(isMatch("abcadaaaa", "ab.ada*aa"));  // true
-  print(isMatch("a", "a*"));  // true
-  print(isMatch("", "a*"));  // true
-
-  print(isMatch("bccbbabcaccacbcacaa", ".*b.*c*.*.*.c*a*.c"));  // false
-  print(isMatch("bccbbabcaccacbcacaa", ".*b.*c*.*.c*a*."));  // true
-
-  print(isMatch("ccbbabbbabababa", ".*.ba*c*c*aab.a*b*"));  // false
-
-  print(isMatch("mississippi", "mis*is*p*."));  // false
-  print(isMatch("mississippi", "mis*is*p*..*"));  // true
+  assert_T(isMatch("abcadaaac", "ab.ada*ac"));
+  assert_F(isMatch("abcadaaac", "ab.ada*a"));
+  assert_T(isMatch("abcadaaac", ".*c"));
+  assert_F(isMatch("abcadaaaa", "ab.ada*ac"));
+  assert_T(isMatch("abcadaaaa", "ab.ada*aa"));
+  assert_T(isMatch("a", "a*"));
+  assert_T(isMatch("", "a*"));
+  assert_F(isMatch("bccbbabcaccacbcacaa", ".*b.*c*.*.*.c*a*.c"));
+  assert_T(isMatch("bccbbabcaccacbcacaa", ".*b.*c*.*.c*a*."));
+  assert_F(isMatch("ccbbabbbabababa", ".*.ba*c*c*aab.a*b*"));
+  assert_F(isMatch("mississippi", "mis*is*p*."));
+  assert_T(isMatch("mississippi", "mis*is*p*..*"));
 }

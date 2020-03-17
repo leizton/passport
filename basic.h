@@ -14,6 +14,7 @@
 #include <vector>
 #include <list>
 #include <queue>
+#include <stack>
 #include <set>
 #include <unordered_set>
 #include <map>
@@ -30,67 +31,46 @@
 #include <condition_variable>
 #include <future>
 
-#include "pprint.hpp"
-
 using namespace std;
 
-pprint::PrettyPrinter printer(cout);
-
-#define pprint(...) printer.print(__VA_ARGS__)
-
-#define COUT(expr) cout << boolalpha << (expr) << endl;
-
-#define ASSERT_EQ(expect, actual) {\
+#define assert_eq(expect, actual) {\
   auto actual_v = actual;\
-  assertEquals(__LINE__, expect, actual_v);\
+  _assert_eq(__LINE__, expect, actual_v);\
 }
 
-template<class T>
-void assertEquals(int lineno, T expect, T actual) {
-  if (expect == actual) return;
+template<class T, class U>
+void _assert_eq(int lineno, T expect, U actual) {
   ostringstream ss;
-  ss << lineno << "] assertEquals fail.";
-  ss << " expect=" << expect << ", actual=" << actual << "\n";
-  cout << ss.str();
-}
-
-
-void printss(ostringstream& ss) {
+  ss << "[" << lineno << "] assert_eq";
+  if (expect == actual) {
+    ss << " ok";
+  } else {
+    ss << " fail.";
+    ss << " expect=" << expect << ", actual=" << actual;
+  }
   ss << "\n";
   cout << ss.str();
 }
 
-template<class T>
-void print(vector<T> v) {
-  ostringstream out;
-  out << "[";
-  bool first = true;
-  for (T& e : v) {
-    if (!first) out << ",";
-    first = false;
-    out << e;
-  }
-  out << "]";
-  printss(out);
+#define assert_T(expr) if (expr) {} else {\
+  ostringstream ss;\
+  ss << "[" << __LINE__ << "] assert_T fail\n";\
+  cout << ss.str();\
 }
 
-void print(int v) {
-  ostringstream out;
-  out << v;
-  printss(out);
+#define assert_F(expr) if (expr) {\
+  ostringstream ss;\
+  ss << "[" << __LINE__ << "] assert_F fail\n";\
+  cout << ss.str();\
 }
 
-void print(bool v) {
-  ostringstream out;
-  out << boolalpha << v;
-  printss(out);
-}
+#define COUT(expr) cout << boolalpha << (expr) << endl;
 
 template<class T>
 ostream& operator <<(ostream& out, const vector<T>& v) {
   out << "[";
   bool first = true;
-  for (T& e : v) {
+  for (const T& e : v) {
     if (!first) out << ",";
     first = false;
     out << e;
@@ -123,4 +103,25 @@ ostream& operator <<(ostream& out, const unordered_map<K,V>& m) {
   }
   out << "]";
   return out;
+}
+
+template<class T>
+void printvec(vector<T> v) {
+  ostringstream ss;
+  ss << v << "\n";
+  cout << ss.str();
+}
+
+template<class K, class V>
+void printmap(map<K,V> m) {
+  ostringstream ss;
+  ss << m << "\n";
+  cout << ss.str();
+}
+
+template<class K, class V>
+void printunmap(unordered_map<K,V> m) {
+  ostringstream ss;
+  ss << m << "\n";
+  cout << ss.str();
 }

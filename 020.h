@@ -34,11 +34,11 @@ bool isValid(string s) {
 }
 
 void test() {
-  print(isValid("("));  // F
-  print(isValid("]"));  // F
-  print(isValid("()"));  // T
-  print(isValid("(){}"));  // T
-  print(isValid("(]"));  // F
-  print(isValid("(([]))"));  // T
-  print(isValid("([(]))"));  // F
+  assert_F(isValid("("));
+  assert_F(isValid("]"));
+  assert_T(isValid("()"));
+  assert_T(isValid("(){}"));
+  assert_F(isValid("(]"));
+  assert_T(isValid("(([]))"));
+  assert_F(isValid("([(]))"));
 }

@@ -33,5 +33,5 @@ int maxArea(vector<int>&& h) {
 }
 
 void test() {
-  print(maxArea({1,8,6,2,5,4,8,3,7}));  // 49
+  assert_eq(49, maxArea({1,8,6,2,5,4,8,3,7}));
 }

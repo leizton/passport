@@ -35,9 +35,9 @@ vector<int> twoSum(vector<int>& nums, int target) {
 void test() {
   vector<int> nums{11, 2, 15, 7};
   auto ret = twoSum(nums, 9);
-  print(ret);
+  printvec(ret);
 
   nums = {3, 2, 4};
   ret = twoSum(nums, 6);
-  print(ret);
+  printvec(ret);
 }

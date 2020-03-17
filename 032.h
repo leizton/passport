@@ -60,12 +60,12 @@ int longestValidParentheses(string str) {
 }
 
 void test() {
-  ASSERT_EQ(0, longestValidParentheses(""));
-  ASSERT_EQ(0, longestValidParentheses("(("));
-  ASSERT_EQ(2, longestValidParentheses("(()"));
-  ASSERT_EQ(4, longestValidParentheses(")()())"));
-  ASSERT_EQ(4, longestValidParentheses("()()"));
-  ASSERT_EQ(6, longestValidParentheses("()(())"));
-  ASSERT_EQ(22, longestValidParentheses(")(((((()())()()))()(()))("));
-  ASSERT_EQ(2, longestValidParentheses("()(()"));
+  assert_eq(0, longestValidParentheses(""));
+  assert_eq(0, longestValidParentheses("(("));
+  assert_eq(2, longestValidParentheses("(()"));
+  assert_eq(4, longestValidParentheses(")()())"));
+  assert_eq(4, longestValidParentheses("()()"));
+  assert_eq(6, longestValidParentheses("()(())"));
+  assert_eq(22, longestValidParentheses(")(((((()())()()))()(()))("));
+  assert_eq(2, longestValidParentheses("()(()"));
 }

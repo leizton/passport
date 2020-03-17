@@ -105,11 +105,11 @@ void releaseList(ListNode** src) {
 }
 
 void printList(ListNode* l) {
-  ostringstream sout;
+  ostringstream ss;
   for (; l != nullptr; l = l->next) {
-    sout << l->val;
+    ss << l->val;
   }
-  print(sout.str());
+  cout << ss.str() << endl;
 }
 
 void test(vector<int>&& x1, vector<int>&& x2) {

@@ -83,6 +83,6 @@ int subarraysWithKDistinct(vector<int> A, int K) {
 }
 
 void test() {
-  ASSERT_EQ(7, subarraysWithKDistinct({1,2,1,2,3}, 2));
-  ASSERT_EQ(23, subarraysWithKDistinct({2,2,1,2,2,2,1,1}, 2));
+  assert_eq(7, subarraysWithKDistinct({1,2,1,2,3}, 2));
+  assert_eq(23, subarraysWithKDistinct({2,2,1,2,2,2,1,1}, 2));
 }
