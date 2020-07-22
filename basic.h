@@ -125,3 +125,32 @@ void printunmap(unordered_map<K,V> m) {
   ss << m << "\n";
   cout << ss.str();
 }
+
+/**
+ * void print(Args... args)
+ */
+inline void __print(std::ostringstream& out, std::string sep, bool is_begin) {
+}
+
+template<class First, class... Args>
+void __print(std::ostringstream& out, std::string sep, bool is_begin, First first, Args... left) {
+  if (!is_begin) out << sep;
+  out << first;
+  __print(out, sep, false, left...);
+}
+
+template<class... Args>
+void print(Args... args) {
+  std::ostringstream out;
+  __print(out, ", ", true, args...);
+  out << "\n";
+  cout << out.str();
+}
+
+template<class... Args>
+void println(Args... args) {
+  std::ostringstream out;
+  __print(out, "", true, args...);
+  out << "\n";
+  cout << out.str();
+}

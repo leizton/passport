@@ -18,7 +18,8 @@ init_include_flags .
 CPP="$CPP_FLAGS $INCLUDE_FLAGS"
 
 if [ $# -gt 0 ]; then
-  $CPP main.cc -DSOLU_HEADER="\"$1.h\""
+  target=`find . -name "$1*.h" | awk -F '/' '{print $3}'`
+  $CPP main.cc -DSOLU_HEADER="\"$target\""
 else
   $CPP main.cc
 fi
