@@ -11,11 +11,13 @@
 #
 双指针
 移动更短的那个指针
-考虑[p,q], 如果 h[p] < h[q], 则 area(p,q-1) <= (q-1-p)*h[p] < area(p,q), 所以因选择 area(p+1,q)
+考虑[p,q]。下一步可行的是 [p+1,q] [p,q-1]
+设 h[p] < h[q] => area(p,q) = h[p] * (q-p)
+area(p,q-1) <= h[p] * (q-1-p) < area(p,q), 所以选择 area(p+1,q)
 
 */
 
-int maxArea(vector<int>&& h) {
+int maxArea(const vector<int>& h) {
   if (h.size() < 2) return 0;
 
   int max_area = 0;
