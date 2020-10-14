@@ -37,5 +37,5 @@ int removeElement(vector<int>& nums, int val) {
 void test() {
   vector<int> v1 = {3,1,2,3};
   assert_eq(2, removeElement(v1, 3));
-  printvec(v1);
+  print(v1);
 }

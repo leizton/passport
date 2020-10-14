@@ -19,6 +19,9 @@ CPP="$CPP_FLAGS $INCLUDE_FLAGS"
 
 if [ $# -gt 0 ]; then
   target=`find . -name "$1*.h" | awk -F '/' '{print $3}'`
+  if [ -z $target ]; then
+    target=`find . -name "$1*.h"`
+  fi
   $CPP main.cc -DSOLU_HEADER="\"$target\""
 else
   $CPP main.cc

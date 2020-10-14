@@ -66,8 +66,14 @@ void _assert_eq(int lineno, T expect, U actual) {
 
 #define COUT(expr) cout << boolalpha << (expr) << endl;
 
+template<class K, class V>
+ostream& operator<<(ostream& out, pair<K,V> p) {
+  out << "<" << p.first << "," << p.second << ">";
+  return out;
+}
+
 template<class T>
-ostream& operator <<(ostream& out, const vector<T>& v) {
+ostream& operator<<(ostream& out, const vector<T>& v) {
   out << "[";
   bool first = true;
   for (const T& e : v) {
@@ -79,11 +85,24 @@ ostream& operator <<(ostream& out, const vector<T>& v) {
   return out;
 }
 
-template<class K, class V>
-ostream& operator <<(ostream& out, const map<K,V>& m) {
+template<class T>
+ostream& operator<<(ostream& out, const set<T>& s) {
   out << "[";
   bool first = true;
-  for (auto& p : m) {
+  for (const T& e : s) {
+    if (!first) out << ",";
+    first = false;
+    out << e;
+  }
+  out << "]";
+  return out;
+}
+
+template<class K, class V>
+ostream& operator<<(ostream& out, const map<K,V>& m) {
+  out << "[";
+  bool first = true;
+  for (const auto& p : m) {
     if (!first) out << ",";
     first = false;
     out << p.first << "=" << p.second;
@@ -93,7 +112,7 @@ ostream& operator <<(ostream& out, const map<K,V>& m) {
 }
 
 template<class K, class V>
-ostream& operator <<(ostream& out, const unordered_map<K,V>& m) {
+ostream& operator<<(ostream& out, const unordered_map<K,V>& m) {
   out << "[";
   bool first = true;
   for (auto& p : m) {
@@ -106,24 +125,10 @@ ostream& operator <<(ostream& out, const unordered_map<K,V>& m) {
 }
 
 template<class T>
-void printvec(vector<T> v) {
+string to_str(T v) {
   ostringstream ss;
-  ss << v << "\n";
-  cout << ss.str();
-}
-
-template<class K, class V>
-void printmap(map<K,V> m) {
-  ostringstream ss;
-  ss << m << "\n";
-  cout << ss.str();
-}
-
-template<class K, class V>
-void printunmap(unordered_map<K,V> m) {
-  ostringstream ss;
-  ss << m << "\n";
-  cout << ss.str();
+  ss << v;
+  return ss.str();
 }
 
 /**
