@@ -6,6 +6,7 @@
 #include <fstream>
 #include <exception>
 #include <typeinfo>
+#include <limits>
 
 #include <memory>
 #include <string>
