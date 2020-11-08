@@ -34,6 +34,8 @@
 
 using namespace std;
 
+#define comment(x) 0
+
 #define assert_eq(expect, actual) {\
   auto actual_v = actual;\
   _assert_eq(__LINE__, expect, actual_v);\
