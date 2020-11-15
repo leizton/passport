@@ -80,7 +80,19 @@ int mctFromLeafValues(vector<int>& arr) {
   }
 
   // 递归
-  return mct(arr, 0, n-1, mct_memo, max_memo);
+  // return mct(arr, 0, n-1, mct_memo, max_memo);
+
+  for (int j_st = 2; j_st < n; j_st++) {
+    int i = 0;
+    for (int j = j_st; j < n; j++, i++) {
+      int mct_ij = INT32_MAX;
+      for (int k = i; k < j; k++) {
+        mct_ij = std::min(mct_ij, mct_memo[i][k] + mct_memo[k+1][j] + max_memo[i][k] * max_memo[k+1][j]);
+      }
+      mct_memo[i][j] = mct_ij;
+    }
+  }
+  return mct_memo[0][n-1];
 }
 
 void test() {
